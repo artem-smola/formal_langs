@@ -1,0 +1,6 @@
+2
+3
+S -> AB | c
+A -> eps
+B -> eps | d
+S

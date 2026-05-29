@@ -1,0 +1,27 @@
+graph G {
+  graph [labeljust="l", labelloc="t", fontsize=20, fontname="Arial", label="Cities: test1"];
+  node [shape=circle, style=filled, fontname="Arial", fontsize=12, penwidth=1.3];
+  edge [fontname="Arial", fontsize=11, color="#4b5563"];
+
+  1 [label="1\nS1", fillcolor="#93c5fd"];
+  2 [label="2\nS1", fillcolor="#93c5fd"];
+  3 [label="3\nS2", fillcolor="#86efac"];
+  4 [label="4\nS2", fillcolor="#86efac"];
+  5 [label="5\nS1", fillcolor="#93c5fd"];
+  6 [label="6\nS1", fillcolor="#93c5fd"];
+
+  1 -- 2 [label="1", xlabel="e1"];
+  2 -- 3 [label="2", xlabel="e2"];
+  3 -- 4 [label="1", xlabel="e3"];
+  4 -- 5 [label="2", xlabel="e4"];
+  5 -- 6 [label="1", xlabel="e5"];
+  1 -- 6 [label="4", xlabel="e6"];
+  2 -- 5 [label="3", xlabel="e7"];
+
+  subgraph cluster_legend {
+    label="Legend"; fontsize=14; fontname="Arial"; color="#d1d5db";
+    legend_1 [shape=box, style=filled, fillcolor="#93c5fd", label="S1", width=0.7, height=0.35, fixedsize=true];
+    legend_2 [shape=box, style=filled, fillcolor="#86efac", label="S2", width=0.7, height=0.35, fixedsize=true];
+    legend_1 -- legend_2 [style=invis];
+  }
+}

@@ -1,0 +1,6 @@
+3
+3
+S -> aA | b
+A -> cD | d
+D -> e | eps
+xS

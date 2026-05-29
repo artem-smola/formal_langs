@@ -1,0 +1,35 @@
+digraph G {
+  graph [labeljust="l", labelloc="t", fontsize=20, fontname="Arial", label="EFF rightmost derivations: test1"];
+  rankdir=TB;
+  node [shape=box, style=filled, fontname="Arial", fontsize=11, color="#374151"];
+  edge [fontname="Arial", fontsize=10, color="#6b7280"];
+
+  n0 [label="S", fillcolor="#dbeafe", penwidth=2.0];
+  n1 [label="aA", fillcolor="#dbeafe", penwidth=1.2];
+  n2 [label="b", fillcolor="#bbf7d0", penwidth=1.2];
+  n3 [label="ac", fillcolor="#bbf7d0", penwidth=1.2];
+  n4 [label="a", fillcolor="#e5e7eb", penwidth=1.2];
+
+  n0 -> n1 [label="S->aA"];
+  n0 -> n2 [label="S->b"];
+  n1 -> n3 [label="A->c"];
+  n1 -> n4 [label="A->ε"];
+
+  subgraph cluster_legend {
+    label="Legend"; fontsize=13; fontname="Arial"; color="#d1d5db";
+    key_nonterm [shape=box, style=filled, fillcolor="#dbeafe", label="sentential form"];
+    key_eff [shape=box, style=filled, fillcolor="#bbf7d0", label="terminal leaf, prefix in EFF"];
+    key_filtered [shape=box, style=filled, fillcolor="#e5e7eb", label="terminal leaf, filtered"];
+    key_nonterm -> key_eff [style=invis];
+    key_eff -> key_filtered [style=invis];
+  }
+
+  subgraph cluster_info {
+    label="Test info"; fontsize=13; fontname="Arial"; color="#d1d5db";
+    info_k [shape=note, label="k = 2"];
+    info_alpha [shape=note, label="alpha = S"];
+    info_eff [shape=note, label="EFF = ac b"];
+    info_k -> info_alpha [style=invis];
+    info_alpha -> info_eff [style=invis];
+  }
+}
